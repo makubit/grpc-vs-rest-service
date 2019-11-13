@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 	"context"
-	"github.com/go-acme/lego/log"
+	"log"
 	"sync"
 
 	pb "github.com/makubit/grpc-vs-rest-service/grpc-service/proto/consignment"
-	vesselProto "github.com/makubit/shippy-service/vessel-service/proto/vessel"
+	vesselProto "github.com/makubit/grpc-vs-rest-service/grpc-sorting-service/proto/vessel"
 	"github.com/micro/go-micro"
 )
 
