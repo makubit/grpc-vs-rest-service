@@ -2,12 +2,12 @@ FROM golang:alpine as builder
 
 RUN apk --no-cache add git
 
-WORKDIR /app/vessel-service
+WORKDIR /app/grpc-sorting-service
 
 COPY . .
 
 RUN go mod download
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o shippy-service-vessel
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o grpc-sorting-service
 
 FROM alpine:latest
 
@@ -15,6 +15,6 @@ RUN apk --no-cache add ca-certificates
 
 RUN mkdir /app
 WORKDIR /app
-COPY --from=builder /app/vessel-service .
+COPY --from=builder /app/grpc-sorting-service .
 
-CMD ["./shippy-service-vessel"]
+CMD ["./grpc-sorting-service"]

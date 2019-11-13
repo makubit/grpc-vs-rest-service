@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package grpc;
+
+service SortingService {
+    rpc Sort(SortRequest) returns (Response) {}
+}
+
+message SortRequest {
+    repeated int32 tableToSort = 1;
+}
+
+message Response {
+    bool sorted = 1;
+    repeated int32 sortedTable = 2;
+}

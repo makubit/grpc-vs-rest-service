@@ -8,7 +8,7 @@ import(
 	"os"
 
 	"context"
-	pb "github.com/makubit/shippy-service/proto/consignment"
+	pb "github.com/makubit/grpc-vs-rest-service/grpc-service/proto/consignment"
 )
 
 const (
@@ -27,10 +27,10 @@ func parseFile(file string) (*pb.Consignment, error) {
 }
 
 func main() {
-	service := micro.NewService(micro.Name("shippy-service.consignment.cli"))
+	service := micro.NewService(micro.Name("grpc.testing.cli"))
 	service.Init()
 
-	client := pb.NewShippingServiceClient("shippy-service.consignment.service", service.Client())
+	client := pb.NewShippingServiceClient("grpc.service", service.Client())
 
 	file := defaultFilename
 	if len(os.Args) > 1 {

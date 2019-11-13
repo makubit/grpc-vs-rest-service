@@ -75,11 +75,11 @@ func main() {
 	repo := &Repository{}
 
 	srv := micro.NewService(
-		micro.Name("shippy-service.consignment.service"),
+		micro.Name("grpc.service"),
 		)
 	srv.Init()
 
-	vesselClient := vesselProto.NewVesselServiceClient("shippy-service.vessel.service", srv.Client())
+	vesselClient := vesselProto.NewVesselServiceClient("grpc.sorting.service", srv.Client())
 
 	pb.RegisterShippingServiceHandler(srv.Server(), &service{repo, vesselClient})
 

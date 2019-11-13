@@ -4,6 +4,6 @@ RUN mkdir -p /app
 WORKDIR /app
 
 ADD consignment.json /app/consignment.json
-ADD consignment-cli /app/consignment-cli
+ADD grpc-testing-cli /app/grpc-testing-cli
 
-CMD ["./consignment-cli"]
+CMD ["./grpc-testing-cli"]
