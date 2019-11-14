@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2943b6d6-c390-46fc-9d88-2a4e618f0b0c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grpc-service/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-service/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grpc-service/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-service/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grpc-sorting-service/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-sorting-service/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grpc-sorting-service/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-sorting-service/go.sum" afterDir="false" />
     </list>
@@ -31,8 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grpc-sorting-service/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-571">
-              <caret line="9" column="39" selection-start-line="9" selection-end-line="10" />
+            <state relative-caret-position="170">
+              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -43,15 +41,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grpc-service/makefile">
+        <entry file="file://$PROJECT_DIR$/grpc-sorting-service/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+            <state relative-caret-position="306">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grpc-sorting-service/makefile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
@@ -63,17 +61,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grpc-service/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="49" lean-forward="true" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+            <state relative-caret-position="221">
+              <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+              <folding>
+                <element signature="e#14#431#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grpc-sorting-service/go.mod">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="51">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -151,9 +152,9 @@
         <option value="$PROJECT_DIR$/grpc-service/makefile" />
         <option value="$PROJECT_DIR$/grpc-sorting-service/makefile" />
         <option value="$PROJECT_DIR$/grpc-sorting-service/main.go" />
-        <option value="$PROJECT_DIR$/grpc-service/main.go" />
         <option value="$PROJECT_DIR$/grpc-sorting-service/go.sum" />
         <option value="$PROJECT_DIR$/grpc-sorting-service/go.mod" />
+        <option value="$PROJECT_DIR$/grpc-service/main.go" />
       </list>
     </option>
   </component>
@@ -189,13 +190,6 @@
             <path>
               <item name="grpc-vs-rest-service" type="b2602c69:ProjectViewProjectNode" />
               <item name="grpc-vs-rest-service" type="462c0819:PsiDirectoryNode" />
-              <item name="grpc-service" type="462c0819:PsiDirectoryNode" />
-              <item name="proto" type="462c0819:PsiDirectoryNode" />
-              <item name="grpcService" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="grpc-vs-rest-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="grpc-vs-rest-service" type="462c0819:PsiDirectoryNode" />
               <item name="grpc-sorting-service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -203,6 +197,13 @@
               <item name="grpc-vs-rest-service" type="462c0819:PsiDirectoryNode" />
               <item name="grpc-sorting-service" type="462c0819:PsiDirectoryNode" />
               <item name="proto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="grpc-vs-rest-service" type="b2602c69:ProjectViewProjectNode" />
+              <item name="grpc-vs-rest-service" type="462c0819:PsiDirectoryNode" />
+              <item name="grpc-sorting-service" type="462c0819:PsiDirectoryNode" />
+              <item name="proto" type="462c0819:PsiDirectoryNode" />
+              <item name="sortingService" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="grpc-vs-rest-service" type="b2602c69:ProjectViewProjectNode" />
@@ -256,18 +257,18 @@
       <option name="presentableId" value="Default" />
       <updated>1573683200007</updated>
       <workItem from="1573683201642" duration="5419000" />
-      <workItem from="1573763489710" duration="3382000" />
+      <workItem from="1573763489710" duration="4437000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8801000" />
+    <option name="totallyTimeSpent" value="9856000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="949" y="0" width="978" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.251634" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29738563" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -379,13 +380,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grpc-sorting-service/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grpc-service/go.sum">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -403,13 +397,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grpc-sorting-service/makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -437,24 +424,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grpc-sorting-service/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-571">
-          <caret line="9" column="39" selection-start-line="9" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grpc-service/go.mod">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grpc-service/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="49" lean-forward="true" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -463,8 +436,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grpc-sorting-service/go.mod">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grpc-sorting-service/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grpc-service/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+          <folding>
+            <element signature="e#14#431#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grpc-sorting-service/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grpc-sorting-service/makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
         </state>
       </provider>
     </entry>

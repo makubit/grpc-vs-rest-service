@@ -1,6 +1,6 @@
 syntax="proto3";
 
-package grpc;
+package sortingService;
 
 service SortingService {
     rpc Sort(SortRequest) returns (Response) {}
