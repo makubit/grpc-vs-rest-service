@@ -2,7 +2,7 @@ build:
 	protoc -I. --go_out=plugins=micro:. \
 	  proto/consignment/consignment.proto
 	protoc -I. --go_out=plugins=micro:. \
-	  proto/sort/sort.proto
+	  proto/grpcService/grpcService.proto
 	#GOOS=linux go build
 	docker build -t grpc-service .
 

@@ -9,6 +9,7 @@ import (
 	pb "github.com/makubit/grpc-vs-rest-service/grpc-service/proto/consignment"
 	vesselProto "github.com/makubit/grpc-vs-rest-service/grpc-sorting-service/proto/vessel"
 	"github.com/micro/go-micro"
+	s "github.com/makubit/grpc-vs-rest-service/grpc-sorting-service/proto/sortingService"
 )
 
 const (
