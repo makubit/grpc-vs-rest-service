@@ -194,10 +194,8 @@ github.com/linode/linodego v0.10.0/go.mod h1:cziNP7pbvE3mXIPneHj0oRY8L1WtGEIKlZ8
 github.com/liquidweb/liquidweb-go v1.6.0/go.mod h1:UDcVnAMDkZxpw4Y7NOHkqoeiGacVLEIG/i5J9cyixzQ=
 github.com/lucas-clemente/quic-go v0.12.1 h1:BPITli+6KnKogtTxBk2aS4okr5dUHz2LtIDAP1b8UL4=
 github.com/lucas-clemente/quic-go v0.12.1/go.mod h1:UXJJPE4RfFef/xPO5wQm0tITK8gNfqwTxjbE7s3Vb8s=
-github.com/makubit/grpc-vs-rest-service v0.0.0-20191113234329-efa07cd28ea9 h1:J7XFym2f2HXdPX8ywvwhV+vxi7h1EVr2oiy/j8ecQwk=
-github.com/makubit/grpc-vs-rest-service/grpc-sorting-service v0.0.0-20191113232753-118d6a19bf38 h1:t4kFnrjND8Z96jkWBjqgMEF+L8kijSpSKpJt5zfbbPM=
-github.com/makubit/grpc-vs-rest-service/grpc-sorting-service v0.0.0-20191113232753-118d6a19bf38/go.mod h1:tvQR0Hu+mkdKxQLMZlM7X69ftOYoORPUaEvD/a8r5m0=
-github.com/makubit/grpc-vs-rest-service/grpc-sorting-service v0.0.0-20191113234329-efa07cd28ea9 h1:JWC5snfQvicPK8Yl+MhwXDr3aZdaIHLv3XhA9dWkLvs=
+github.com/makubit/grpc-vs-rest-service/grpc-sorting-service v0.0.0-20191114215123-80525484ab2c h1:JO1WOpBTyoBfn2oXFMguT+T3ShADIVBsZQIZyrNBSjA=
+github.com/makubit/grpc-vs-rest-service/grpc-sorting-service v0.0.0-20191114215123-80525484ab2c/go.mod h1:tvQR0Hu+mkdKxQLMZlM7X69ftOYoORPUaEvD/a8r5m0=
 github.com/marten-seemann/qpack v0.1.0/go.mod h1:LFt1NU/Ptjip0C2CPkhimBz5CGE3WGDAUWqna+CNTrI=
 github.com/marten-seemann/qtls v0.3.2 h1:O7awy4bHEzSX/K3h+fZig3/Vo03s/RxlxgsAk9sYamI=
 github.com/marten-seemann/qtls v0.3.2/go.mod h1:xzjG7avBwGGbdZ8dTGxlBnLArsVKLvwmjgmPuiQEcYk=

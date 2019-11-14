@@ -67,14 +67,20 @@ type service struct {
 }*/
 
 func (s *service) GetFromSortingService(ctx context.Context, req *gr.SortRequest, res *gr.Response) (error) {
-	sortingResponse := s.sortingClient.Sort(context.Background(), &sCli.SortRequest{
+	sortingResponse, _ := s.sortingClient.Sort(context.Background(), &sCli.SortRequest{
+		Sorted: false,
+		TableToSort: req.TableToSort,
+	})
+		/*context.Background(), &sCli.SortRequest{
 		sorted: false,
 		tableToSort: req.TableToSort,
-	})
-	log.Println("Table sorted: ", sortingResponse.tableToSort)
+	})*/
 
-	res.Sorted = sortingResponse.sorted
-	res.SortedTable = sortingResponse.tableToSort
+	//sortResponse := s
+	log.Println("Table sorted: ", sortingResponse.SortedTable)
+
+	res.Sorted = sortingResponse.Sorted
+	res.SortedTable = sortingResponse.SortedTable
 
 	return nil
 }
@@ -103,6 +109,7 @@ func main() {
 
 	sortingClient := sCli.NewSortingServiceClient("grpc.sorting.service", srv.Client())
 	gr.RegisterGrpcServiceHandler(srv.Server(), &service{repo, sortingClient})
+
 	if err := srv.Run(); err != nil {
 		fmt.Println(err)
 	}

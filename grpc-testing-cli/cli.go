@@ -1,17 +1,20 @@
 package main
 
 import(
-	"encoding/json"
+	//"encoding/json"
 	"github.com/micro/go-micro"
-	"io/ioutil"
+	"time"
+
+	//"io/ioutil"
 	"log"
-	"os"
+	//"os"
 
 	"context"
-	pb "github.com/makubit/grpc-vs-rest-service/grpc-service/proto/consignment"
+	//pb "github.com/makubit/grpc-vs-rest-service/grpc-service/proto/consignment"
+	gr "github.com/makubit/grpc-vs-rest-service/grpc-service/proto/grpcService"
 )
 
-const (
+/*const (
 	defaultFilename = "consignment.json"
 )
 
@@ -24,10 +27,10 @@ func parseFile(file string) (*pb.Consignment, error) {
 
 	json.Unmarshal(data, &consignment)
 	return consignment, err //or nil, at this point err = nil
-}
+}*/
 
 func main() {
-	service := micro.NewService(micro.Name("grpc.testing.cli"))
+	/*service := micro.NewService(micro.Name("grpc.testing.cli"))
 	service.Init()
 
 	client := pb.NewShippingServiceClient("grpc.service", service.Client())
@@ -55,6 +58,21 @@ func main() {
 	}
 	for _, v := range getAll.Consignments {
 		log.Println(v)
-	}
+	}*/
+	time.Sleep(5*time.Second)
+
+	srv := micro.NewService(
+		micro.Name("grpc.testing.cli"),
+	)
+
+	srv.Init()
+
+	client := gr.NewGrpcServiceClient("grpc.service", srv.Client())
+
+	sortedTableResponse, _ := client.GetFromSortingService(context.Background(), &gr.SortRequest{
+		TableToSort: []int32{6,5,4,3,2,1},
+	})
+
+	log.Println("Got from grpc-service table: ", sortedTableResponse.SortedTable)
 }
 
