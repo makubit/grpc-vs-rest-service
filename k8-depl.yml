@@ -1,0 +1,108 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-service
+spec:
+   run: grpc-service
+   replicas: 3
+   selector:
+     matchLabels:
+       app: grpc-service
+   template:
+     metadata:
+       labels:
+         app: grpc-service
+     spec:
+       containers:
+         - name: grpc-service
+           image: makubit/grpc-vs-rest-service_grpc-service:1.0.0
+           imagePullPolicy: IfNotPresent
+           ports:
+             - containerPort: 50051
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-sorting-service
+spec:
+  run: grpc-sorting-service
+  replicas: 3
+  selector:
+    matchLabels:
+      app: grpc-sorting-service
+  template:
+    metadata:
+      labels:
+        app: grpc-sorting-service
+    spec:
+      containers:
+        - name: grpc-sorting-service
+          image: makubit/grpc-vs-rest-service_grpc-sorting-service:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 50052
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-testing-cli
+spec:
+  run: grpc-testing-cli
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-testing-cli
+  template:
+    metadata:
+      labels:
+        app: grpc-testing-cli
+    spec:
+      containers:
+        - name: grpc-testing-cli
+          image: makubit/grpc-vs-rest-service_grpc-testing-cli:1.0.0
+          imagePullPolicy: IfNotPresent
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-service
+spec:
+  type: NodePort
+  ports:
+    - port: 50051
+      targetPort: 50051
+  selector:
+    app: grpc-service
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-sorting-service
+spec:
+  type: NodePort
+  ports:
+    - port: 50051
+      targetPort: 50052
+  selector:
+    app: grpc-sorting-service
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-testing-cli
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+  selector:
+    app: grpc-testing-cli

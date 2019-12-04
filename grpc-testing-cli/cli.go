@@ -1,6 +1,7 @@
 package main
 
-import(
+import (
+	"fmt"
 	//"encoding/json"
 	"github.com/micro/go-micro"
 	"time"
@@ -10,6 +11,7 @@ import(
 	//"os"
 
 	"context"
+	"github.com/gin-gonic/gin"
 	//pb "github.com/makubit/grpc-vs-rest-service/grpc-service/proto/consignment"
 	gr "github.com/makubit/grpc-vs-rest-service/grpc-service/proto/grpcService"
 )
@@ -69,9 +71,23 @@ func main() {
 
 	client := gr.NewGrpcServiceClient("grpc.service", srv.Client())
 
+	r := gin.Default()
 	sortedTableResponse, _ := client.GetFromSortingService(context.Background(), &gr.SortRequest{
 		TableToSort: []int32{6,5,4,3,2,1},
 	})
+
+	r.GET("/gett", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "pong",
+			"sortedTable": sortedTableResponse,
+		})
+	})
+
+
+	err := r.Run()
+	if err != nil {
+		fmt.Println("got error: %w", err)
+	}
 
 	log.Println("Got from grpc-service table: ", sortedTableResponse.SortedTable)
 }

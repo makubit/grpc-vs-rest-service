@@ -5,6 +5,8 @@ services:
 
   grpc-testing-cli:
     build: ./grpc-testing-cli
+    ports:
+      - 8080:8080
 
   grpc-service:
     build: ./grpc-service

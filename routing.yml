@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Ingress
+metadata:
+  name: grpc-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/grpc-backend: "true"
+spec:
+  tls:
+    - hosts:
+        - grpc.example.com
+      secretName: grpc-secret
+  rules:
+    - host: grpc.example.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: grpc-service
+              servicePort: 50051
