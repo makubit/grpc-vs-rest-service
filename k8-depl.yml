@@ -4,7 +4,7 @@ metadata:
   name: grpc-service
 spec:
    run: grpc-service
-   replicas: 3
+   replicas: 1
    selector:
      matchLabels:
        app: grpc-service
@@ -16,9 +16,23 @@ spec:
        containers:
          - name: grpc-service
            image: makubit/grpc-vs-rest-service_grpc-service:1.0.0
-           imagePullPolicy: IfNotPresent
+           imagePullPolicy: Always
            ports:
              - containerPort: 50051
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-service
+spec:
+  type: NodePort
+  ports:
+    - port: 50051
+      targetPort: 50051
+  selector:
+    app: grpc-service
 
 ---
 
@@ -40,9 +54,23 @@ spec:
       containers:
         - name: grpc-sorting-service
           image: makubit/grpc-vs-rest-service_grpc-sorting-service:1.0.0
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 50052
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-sorting-service
+spec:
+  type: NodePort
+  ports:
+    - port: 50051
+      targetPort: 50052
+  selector:
+    app: grpc-sorting-service
 
 ---
 
@@ -63,36 +91,10 @@ spec:
     spec:
       containers:
         - name: grpc-testing-cli
-          image: makubit/grpc-vs-rest-service_grpc-testing-cli:1.0.0
-          imagePullPolicy: IfNotPresent
-
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: grpc-service
-spec:
-  type: NodePort
-  ports:
-    - port: 50051
-      targetPort: 50051
-  selector:
-    app: grpc-service
-
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: grpc-sorting-service
-spec:
-  type: NodePort
-  ports:
-    - port: 50051
-      targetPort: 50052
-  selector:
-    app: grpc-sorting-service
+          image: makubit/grpc-vs-rest-service_grpc-testing-cli:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
 
 ---
 
@@ -104,5 +106,9 @@ spec:
   type: NodePort
   ports:
     - port: 8080
+      nodePort: 30080 #accessible from outside of the cluser
   selector:
     app: grpc-testing-cli
+
+  # minikube service api-service --url
+# curl http://192.168.99.100:30080/gett

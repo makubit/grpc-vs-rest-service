@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+
 	//"encoding/json"
 	"github.com/micro/go-micro"
 	"time"
@@ -72,9 +74,13 @@ func main() {
 	client := gr.NewGrpcServiceClient("grpc.service", srv.Client())
 
 	r := gin.Default()
+	start := time.Now()
 	sortedTableResponse, _ := client.GetFromSortingService(context.Background(), &gr.SortRequest{
-		TableToSort: []int32{6,5,4,3,2,1},
+		//TableToSort: []int32{6,5,4,3,2,1},
+		TableToSort: gen1MBTable(), //big table to SORT
 	})
+	passed := time.Since(start)
+	log.Println("Sorting time: ", passed)
 
 	r.GET("/gett", func(c *gin.Context) {
 		c.JSON(200, gin.H{
@@ -83,12 +89,19 @@ func main() {
 		})
 	})
 
-
 	err := r.Run()
 	if err != nil {
 		fmt.Println("got error: %w", err)
 	}
 
 	log.Println("Got from grpc-service table: ", sortedTableResponse.SortedTable)
+}
+
+func gen1MBTable() []int32 {
+	var gen []int32
+	for i:=0; i<len(gen); i++ {
+		gen[i] = rand.Int31()
+	}
+	return gen
 }
 
