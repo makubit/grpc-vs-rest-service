@@ -1,11 +1,12 @@
 package main
 
 import (
-	"fmt"
+	"github.com/micro/go-micro"
 	"math/rand"
 
 	//"encoding/json"
-	"github.com/micro/go-micro"
+	//"github.com/micro/go-micro"
+	k8s "github.com/micro/examples/kubernetes/go/micro"
 	"time"
 
 	//"io/ioutil"
@@ -13,7 +14,6 @@ import (
 	//"os"
 
 	"context"
-	"github.com/gin-gonic/gin"
 	//pb "github.com/makubit/grpc-vs-rest-service/grpc-service/proto/consignment"
 	gr "github.com/makubit/grpc-vs-rest-service/grpc-service/proto/grpcService"
 )
@@ -65,43 +65,54 @@ func main() {
 	}*/
 	time.Sleep(5*time.Second)
 
-	srv := micro.NewService(
+	srv := k8s.NewService(
 		micro.Name("grpc.testing.cli"),
+		micro.Version("latest"),
 	)
 
 	srv.Init()
 
 	client := gr.NewGrpcServiceClient("grpc.service", srv.Client())
 
-	r := gin.Default()
+	log.Println("Starting sorting table")
+	//r := gin.Default()
+	//var table []int32
+	//table = gen1MBTable()
+
 	start := time.Now()
-	sortedTableResponse, _ := client.GetFromSortingService(context.Background(), &gr.SortRequest{
-		//TableToSort: []int32{6,5,4,3,2,1},
-		TableToSort: gen1MBTable(), //big table to SORT
+	sortedTableResponse, err := client.GetFromSortingService(context.Background(), &gr.SortRequest{
+		TableToSort: []int32{6,5,4,3,2,1},
+		//TableToSort: table, //big table to SORT
 	})
+	//log.Println("Table size: ", len(sortedTableResponse.SortedTable))
 	passed := time.Since(start)
 	log.Println("Sorting time: ", passed)
+	log.Println(err)
 
-	r.GET("/gett", func(c *gin.Context) {
+	//log.Println("Got from grpc-service table: ", sortedTableResponse.SortedTable)
+
+	/*r.GET("/gett", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "pong",
 			"sortedTable": sortedTableResponse,
 		})
-	})
+	})*/
 
-	err := r.Run()
+	/*err := r.Run()
 	if err != nil {
 		fmt.Println("got error: %w", err)
-	}
+	}*/
 
-	log.Println("Got from grpc-service table: ", sortedTableResponse.SortedTable)
+	log.Println("Got from grpc-service table: ", sortedTableResponse)
 }
 
 func gen1MBTable() []int32 {
-	var gen []int32
-	for i:=0; i<len(gen); i++ {
+	gen := make([]int32, 31250)
+	for i:=0; i<31250; i++ {
 		gen[i] = rand.Int31()
 	}
 	return gen
 }
+
+
 

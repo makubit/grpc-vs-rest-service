@@ -27,7 +27,7 @@ kind: Service
 metadata:
   name: grpc-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - port: 50051
       targetPort: 50051
@@ -65,7 +65,7 @@ kind: Service
 metadata:
   name: grpc-sorting-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - port: 50051
       targetPort: 50052
@@ -103,12 +103,18 @@ kind: Service
 metadata:
   name: grpc-testing-cli
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - port: 8080
-      nodePort: 30080 #accessible from outside of the cluser
+      targetPort: 30080 #accessible from outside of the cluser
   selector:
     app: grpc-testing-cli
 
   # minikube service api-service --url
 # curl http://192.168.99.100:30080/gett
+
+# importante:
+# make build w testing cli
+# docker tag grpc-testing-cli:latest makubit/grpc-vs-rest-service_grpc-testing-cli:latest
+# docker push makubit/grpc-vs-rest-service_grpc-testing-cli:latest
+# kubectl logs <pod>
