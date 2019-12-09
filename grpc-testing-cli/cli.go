@@ -12,7 +12,7 @@ import (
 	gr "github.com/makubit/grpc-vs-rest-service/grpc-service/proto/grpcService"
 )
 
-const loop  = 1000
+const loop  = 1
 
 func main() {
 	time.Sleep(5*time.Second)
@@ -23,7 +23,6 @@ func main() {
 	)
 
 	srv.Init()
-
 	client := gr.NewGrpcServiceClient("grpc.service", srv.Client())
 
 	var table []int32

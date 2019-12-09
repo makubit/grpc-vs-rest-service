@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: grpc-service
 spec:
-   run: grpc-service
    replicas: 1
    selector:
      matchLabels:
@@ -44,8 +43,7 @@ kind: Deployment
 metadata:
   name: grpc-sorting-service
 spec:
-  run: grpc-sorting-service
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: grpc-sorting-service
@@ -85,7 +83,6 @@ kind: Deployment
 metadata:
   name: grpc-testing-cli
 spec:
-  run: grpc-testing-cli
   replicas: 1
   selector:
     matchLabels:

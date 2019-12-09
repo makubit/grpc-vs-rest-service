@@ -22,9 +22,6 @@ func BenchmarkGRPC(b *testing.B) {
 	for i := 0; i< b.N; i++ {
 		grpcBench(client, b)
 	}
-
-	//log.Println("Got from grpc-service table: ", sortedTableResponse.SortedTable)
-
 }
 
 func grpcBench(client gr.GrpcServiceClient, b *testing.B) {
