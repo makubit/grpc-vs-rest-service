@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
@@ -21,7 +20,9 @@ type Response struct {
 func main() {
 	r := gin.Default()
 	r.POST("/sort", sort)
-	r.Run(":50051")
+	if r.Run(":50051") != nil {
+		log.Fatalf("cannot run gin")
+	}
 }
 
 func sort(c *gin.Context) {
@@ -30,9 +31,11 @@ func sort(c *gin.Context) {
 	if err != nil {
 		log.Println("cannot bind json: ", err)
 	}
-	fmt.Println("received unsorted table: ", sortRequest.TableToSort)
 	buf := new(bytes.Buffer)
-	json.NewEncoder(buf).Encode(sortRequest)
+	err = json.NewEncoder(buf).Encode(sortRequest)
+	if err != nil {
+		log.Fatalf("got error in encoding: %w", err)
+	}
 
 	client := http.Client{}
 	sortResponse, err := client.Post("http://127.0.0.1:50052/sort", "application/json", buf)

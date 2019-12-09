@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"log"
 	"math/rand"
@@ -17,29 +16,12 @@ type Response struct {
 }
 
 func main() {
-	//http.HandleFunc("/sort", sort)
-	//log.Println(http.ListenAndServe(":50052", nil))
 	r := gin.Default()
 	r.POST("/sort", sort)
-	r.Run(":50052")
+	if r.Run(":50052") != nil {
+		log.Fatalf("cannot run gin")
+	}
 }
-
-/*func sort(req http.ResponseWriter, r * http.Request) {
-	decoder := json.NewDecoder(r.Body)
-	var unsortedTable []int32
-	_ = decoder.Decode(&unsortedTable)
-	defer r.Body.Close()
-
-	req.Header().Set("Content-Type", "application/json")
-	sortedTable, _ := quickSort(unsortedTable)//nowy request do innej aplikacji
-
-	_ = json.NewEncoder(req).Encode(Response{
-		Sorted: true,
-		SortedTable: sortedTable,
-	})
-
-	log.Println("in sorting app: ", sortedTable)
-}*/
 
 func sort(c *gin.Context) {
 	var sortRequest SortRequest
@@ -47,11 +29,8 @@ func sort(c *gin.Context) {
 	if err != nil {
 		log.Println("cannot bind json: ", err)
 	}
-	fmt.Println("received unsorted table: ", sortRequest.TableToSort)
 
 	sortedTable, _ := quickSort(sortRequest.TableToSort)
-	fmt.Println("SortedTable: ", sortedTable)
-
 	sort := &Response{
 		SortedTable: sortedTable,
 		Sorted: true,
