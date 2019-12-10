@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/makubit/grpc-vs-rest-service/grpc-sorting-service/sortLib"
+	"os"
 
 	s "github.com/makubit/grpc-vs-rest-service/grpc-sorting-service/proto/sortingService"
 	"github.com/micro/go-micro"
@@ -22,7 +23,7 @@ type service struct {
 
 func main() {
 	srv := micro.NewService(
-		micro.Name("grpc.sorting.service"),
+		micro.Name(os.Getenv("APP_NAME")),
 	)
 
 	srv.Init()

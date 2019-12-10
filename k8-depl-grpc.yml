@@ -1,0 +1,156 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-service
+spec:
+   replicas: 1
+   selector:
+     matchLabels:
+       app: grpc-service
+   template:
+     metadata:
+       labels:
+         app: grpc-service
+     spec:
+       containers:
+       - name: grpc-service
+         env:
+         - name: MICRO_SERVER_ADDRESS
+           value: ":8081"
+         - name: APP_NAME
+           value: grpc-service
+         - name: SORT_APP_NAME
+           value: grpc-sorting-service
+         - name: MICRO_SELECTOR
+           value: static
+         image: makubit/grpc-vs-rest-service_grpc-service:latest
+         imagePullPolicy: Always
+         ports:
+           - containerPort: 8081
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-service
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+spec:
+  type: NodePort
+  ports:
+    - port: 8081
+      targetPort: 8081
+      protocol: TCP
+  selector:
+    app: grpc-service
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-sorting-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-sorting-service
+  template:
+    metadata:
+      labels:
+        app: grpc-sorting-service
+    spec:
+      containers:
+        - name: grpc-sorting-service
+          env:
+          - name: MICRO_SERVER_ADDRESS
+            value: ":8082"
+          - name: MICRO_SELECTOR
+            value: static
+          - name: APP_NAME
+            value: grpc-sorting-service
+          image: makubit/grpc-vs-rest-service_grpc-sorting-service:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8082
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-sorting-service
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+spec:
+  type: NodePort
+  ports:
+    - port: 8082
+      targetPort: 8082
+      protocol: TCP
+  selector:
+    app: grpc-sorting-service
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-testing-cli
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-testing-cli
+  template:
+    metadata:
+      labels:
+        app: grpc-testing-cli
+    spec:
+      containers:
+        - name: grpc-testing-cli
+          env:
+            - name: MICRO_SERVER_ADDRESS
+              value: ":8080"
+            - name: APP_NAME
+              value: grpc-testing-cli
+            - name: SERV_APP_NAME
+              value: grpc-service
+            - name: MICRO_SELECTOR
+              value: static
+          image: makubit/grpc-vs-rest-service_grpc-testing-cli:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              name: testing-port
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-testing-cli
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+  labels:
+    name: grpc-testing-cli
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080 #accessible from outside of the cluser
+      protocol: TCP
+  selector:
+    app: grpc-testing-cli
+
+  # minikube service api-service --url
+# curl http://192.168.99.100:30080/gett
+
+# importante:
+# make build w testing cli
+# docker tag grpc-testing-cli:latest makubit/grpc-vs-rest-service_grpc-testing-cli:latest
+# docker push makubit/grpc-vs-rest-service_grpc-testing-cli:latest
+# kubectl logs <pod> > logs
+
+#awk '{ print $7 }' logs | tr -d "ms"

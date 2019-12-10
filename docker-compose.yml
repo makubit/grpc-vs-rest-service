@@ -10,7 +10,7 @@ services:
 
   grpc-service:
     build: ./grpc-service
-    ports:
+   ports:
       - 50051:50051
     environment:
       MICRO_ADDRESS: ":50051"
@@ -21,3 +21,19 @@ services:
       - 50052:50051
     environment:
       MICRO_ADDRESS: ":50051"
+
+  #rest-testing-cli:
+  #  build: ./rest-testing-cli
+  #  ports:
+  #    - 8080:8080
+
+  #rest-service:
+  #  build: ./rest-service
+  #  ports:
+  #    - 50051:50051
+
+  #rest-sorting-service:
+  #  build: ./rest-sorting-service
+  #  ports:
+  #    - 50052:50051
+

@@ -1,7 +1,5 @@
 build:
 	protoc -I. --go_out=plugins=micro:. \
-      proto/vessel/vessel.proto
-	protoc -I. --go_out=plugins=micro:. \
       proto/sortingService/sortingService.proto
 	docker build -t grpc-sorting-service .
 

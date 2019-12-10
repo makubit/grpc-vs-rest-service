@@ -1,0 +1,112 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-service
+spec:
+   replicas: 3
+   selector:
+     matchLabels:
+       app: rest-service
+   template:
+     metadata:
+       labels:
+         app: rest-service
+     spec:
+       containers:
+       - name: rest-service
+         image: makubit/grpc-vs-rest-service_rest-service:latest
+         imagePullPolicy: Always
+         ports:
+           - containerPort: 50051
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: rest-service
+spec:
+  type: NodePort
+  ports:
+    - port: 50051
+      targetPort: 50051
+  selector:
+    app: rest-service
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-sorting-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rest-sorting-service
+  template:
+    metadata:
+      labels:
+        app: rest-sorting-service
+    spec:
+      containers:
+        - name: rest-sorting-service
+          image: makubit/grpc-vs-rest-service_rest-sorting-service:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 50052
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: rest-sorting-service
+spec:
+  type: NodePort
+  ports:
+    - port: 50052
+      targetPort: 50052
+  selector:
+    app: rest-sorting-service
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-testing-cli
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rest-testing-cli
+  template:
+    metadata:
+      labels:
+        app: rest-testing-cli
+    spec:
+      containers:
+        - name: rest-testing-cli
+          image: makubit/grpc-vs-rest-service_rest-testing-cli:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              name: testing-port
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: rest-testing-cli
+  labels:
+    name: rest-testing-cli
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 30080 #accessible from outside of the cluser
+  selector:
+    app: rest-testing-cli
+

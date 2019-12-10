@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"log"
+	"os"
 	"sync"
 
 	gr "github.com/makubit/grpc-vs-rest-service/grpc-service/proto/grpcService"
@@ -29,8 +29,6 @@ func (s *service) GetFromSortingService(ctx context.Context, req *gr.SortRequest
 		Sorted: false,
 		TableToSort: req.TableToSort,
 	})
-	log.Println("Table sorted: ", sortingResponse.SortedTable)
-
 	res.Sorted = sortingResponse.Sorted
 	res.SortedTable = sortingResponse.SortedTable
 
@@ -41,11 +39,11 @@ func main() {
 	repo := &Repository{}
 
 	srv := micro.NewService(
-		micro.Name("grpc.service"),
+		micro.Name(os.Getenv("APP_NAME")),
 		)
 	srv.Init()
 
-	sortingClient := sCli.NewSortingServiceClient("grpc.sorting.service", srv.Client())
+	sortingClient := sCli.NewSortingServiceClient(os.Getenv("SORT_APP_NAME"), srv.Client())
 	gr.RegisterGrpcServiceHandler(srv.Server(), &service{repo, sortingClient})
 
 	if err := srv.Run(); err != nil {

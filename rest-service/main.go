@@ -31,6 +31,7 @@ func sort(c *gin.Context) {
 	if err != nil {
 		log.Println("cannot bind json: ", err)
 	}
+
 	buf := new(bytes.Buffer)
 	err = json.NewEncoder(buf).Encode(sortRequest)
 	if err != nil {
@@ -38,7 +39,7 @@ func sort(c *gin.Context) {
 	}
 
 	client := http.Client{}
-	sortResponse, err := client.Post("http://127.0.0.1:50052/sort", "application/json", buf)
+	sortResponse, err := client.Post("http://rest-sorting-service.default.svc:50052/sort", "application/json", buf)
 	if err != nil {
 		c.JSON(500, err)
 	}
