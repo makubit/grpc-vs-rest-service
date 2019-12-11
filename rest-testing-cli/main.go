@@ -20,7 +20,7 @@ type Response struct {
 }
 
 const (
-	loop = 10
+	loop = 1
 	test1 = 1
 	test10 = 10
 	test100 = 100
@@ -51,7 +51,7 @@ func main() {
 	wg.Wait()*/
 
 	// TEST CASE #10
-	log.Println("TEST CASE #10")
+	/*log.Println("TEST CASE #10")
 	wg.Add(loop * test10)
 	for i:=0; i<loop; i++ {
 		for j:=0; j<test10; j++ {
@@ -59,7 +59,7 @@ func main() {
 		}
 		time.Sleep(time.Second * 10)
 	}
-	wg.Wait()
+	wg.Wait()*/
 
 	// TEST CASE #100
 	/*log.Println("TEST CASE #100")
@@ -75,12 +75,12 @@ func main() {
 	log.Println("DONE")*/
 
 	// TEST CASE #1000
-	/*log.Println("TEST CASE #1000")
+	log.Println("TEST CASE #1000")
 	wg.Add(test1000)
 	for j:=0; j<test1000; j++ {
 		go sendRequests(client, sort ,&wg)
 	}
-	wg.Wait()*/
+	wg.Wait()
 
 	time.Sleep(time.Hour * 1)
 }
