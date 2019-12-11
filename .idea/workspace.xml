@@ -2,18 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2943b6d6-c390-46fc-9d88-2a4e618f0b0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/grpc-testing-cli/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8s-micro.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/mini-1-1-1-100grpc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grpc-testing-cli/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-testing-cli/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/grpc-service/greeter-api.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/grpc-service/greeter-srv.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/grpc-service/greeter-svc.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/grpc-service/greeter-web.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/micro/api-svc.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/micro/api.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/micro/bot.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/micro/proxy-svc.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/micro/proxy.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/micro/rbac.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/micro/web-svc.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/micro/web.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/grpc-testing-cli/cli.go" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-testing-cli/cli.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grpc-testing-cli/grpc-testing-cli" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-testing-cli/grpc-testing-cli" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grpc-testing-cli/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-testing-cli/makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8-depl-grpc-old.yml" beforeDir="false" afterPath="$PROJECT_DIR$/k8-depl-grpc-old.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8-depl-grpc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/k8-depl-grpc.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/test/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/main.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,25 +29,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grpc-testing-cli/cli.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+            <state relative-caret-position="1139">
+              <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deployment/grpc-service/greeter-svc.yaml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deployment/grpc-service/greeter-srv.yaml">
+        <entry file="file://$PROJECT_DIR$/grpc-service/makefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="15" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="15" />
+            <state relative-caret-position="102">
+              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -52,8 +50,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/k8-depl-grpc-old.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="182" column="44" lean-forward="true" selection-start-line="182" selection-start-column="44" selection-end-line="182" selection-end-column="44" />
+            <state relative-caret-position="102">
+              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/temp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="995" column="12" lean-forward="true" selection-start-line="995" selection-start-column="12" selection-end-line="995" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -90,7 +97,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/grpc-sorting-service/Dockerfile" />
         <option value="$PROJECT_DIR$/grpc-sorting-service/sortLib/quickSort.go" />
         <option value="$PROJECT_DIR$/grpc-service/proto/sort/sort.proto" />
         <option value="$PROJECT_DIR$/grpc-service/go.sum" />
@@ -113,10 +119,8 @@
         <option value="$PROJECT_DIR$/grpc-sorting-service/main.go" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/grpc-sorting-service/makefile" />
-        <option value="$PROJECT_DIR$/grpc-service/makefile" />
         <option value="$PROJECT_DIR$/grpc-service/Dockerfile" />
         <option value="$PROJECT_DIR$/logs" />
-        <option value="$PROJECT_DIR$/grpc-service/main.go" />
         <option value="$PROJECT_DIR$/rest-testing-cli/makefile" />
         <option value="$PROJECT_DIR$/rest-testing-cli/Dockerfile" />
         <option value="$PROJECT_DIR$/rest-service/main.go" />
@@ -139,12 +143,15 @@
         <option value="$PROJECT_DIR$/test/mini-1-1-1-100grpc" />
         <option value="$PROJECT_DIR$/grpc-test/main.go" />
         <option value="$PROJECT_DIR$/k8s-micro.yml" />
-        <option value="$PROJECT_DIR$/k8-depl-grpc-old.yml" />
+        <option value="$PROJECT_DIR$/grpc-service/main.go" />
+        <option value="$PROJECT_DIR$/grpc-service/makefile" />
         <option value="$PROJECT_DIR$/grpc-testing-cli/cli.go" />
+        <option value="$PROJECT_DIR$/k8-depl-grpc-old.yml" />
+        <option value="$PROJECT_DIR$/temp" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -160,17 +167,6 @@
             <path>
               <item name="grpc-vs-rest-service" type="b2602c69:ProjectViewProjectNode" />
               <item name="grpc-vs-rest-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="grpc-vs-rest-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="grpc-vs-rest-service" type="462c0819:PsiDirectoryNode" />
-              <item name="deployment" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="grpc-vs-rest-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="grpc-vs-rest-service" type="462c0819:PsiDirectoryNode" />
-              <item name="deployment" type="462c0819:PsiDirectoryNode" />
-              <item name="grpc-service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="grpc-vs-rest-service" type="b2602c69:ProjectViewProjectNode" />
@@ -244,12 +240,12 @@
       <workItem from="1575731422422" duration="11519000" />
       <workItem from="1575840997611" duration="34851000" />
       <workItem from="1575924294355" duration="22992000" />
-      <workItem from="1576047130878" duration="16459000" />
+      <workItem from="1576047130878" duration="19808000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138866000" />
+    <option name="totallyTimeSpent" value="142215000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -298,27 +294,6 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/micro/go-micro@v1.16.0/client/client.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/micro/go-micro@v1.16.0/service/options.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="86" column="17" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="52" lean-forward="true" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logs2">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-510" />
@@ -482,13 +457,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grpc-testing-cli/makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/eks-3-3-1-100a">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -511,16 +479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grpc-service/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="46" column="33" selection-start-line="46" selection-start-column="7" selection-end-line="46" selection-end-column="33" />
-          <folding>
-            <element signature="e#14#253#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -564,8 +522,19 @@
     <entry file="file://$PROJECT_DIR$/deployment/grpc-service/greeter-api.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/deployment/grpc-service/greeter-svc.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/test/eks-3-3-1-1grpc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="55" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grpc-testing-cli/makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="4" selection-end-column="68" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/deployment/grpc-service/greeter-srv.yaml">
       <provider selected="true" editor-type-id="text-editor">
@@ -574,17 +543,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/k8-depl-grpc-old.yml">
+    <entry file="file://$PROJECT_DIR$/deployment/grpc-service/greeter-svc.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grpc-service/makefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="182" column="44" lean-forward="true" selection-start-line="182" selection-start-column="44" selection-end-line="182" selection-end-column="44" />
+        <state relative-caret-position="102">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grpc-service/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="48" column="37" lean-forward="true" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+          <folding>
+            <element signature="e#14#253#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grpc-testing-cli/cli.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+        <state relative-caret-position="1139">
+          <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/k8-depl-grpc-old.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/temp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="995" column="12" lean-forward="true" selection-start-line="995" selection-start-column="12" selection-end-line="995" selection-end-column="12" />
         </state>
       </provider>
     </entry>

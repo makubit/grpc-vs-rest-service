@@ -15,7 +15,7 @@ import (
 )
 
 const (
-	loop = 100
+	loop = 1
 	test1 = 1
 	test10 = 10
 	test100 = 100
@@ -38,7 +38,7 @@ func main() {
 	_ = json.Unmarshal(data, &table)
 
 	// TEST CASE #1
-	log.Println("TEST CASE #1")
+	/*log.Println("TEST CASE #1")
 	wg.Add(loop * test1)
 	for i:=0; i<loop; i++ {
 		for j:=0; j<test1; j++ {
@@ -46,7 +46,7 @@ func main() {
 		}
 		time.Sleep(time.Second * 10)
 	}
-	wg.Wait()
+	wg.Wait()*/
 
 	// TEST CASE #10
 	/*log.Println("TEST CASE #10")
@@ -72,12 +72,12 @@ func main() {
 	log.Println("DONE")*/
 
 	// TEST CASE #1000
-	/*log.Println("TEST CASE #1000")
+	log.Println("TEST CASE #1000")
 	wg.Add(test1000)
 	for j:=0; j<test1000; j++ {
-		go sendRequests(client, sort ,&wg)
+		go sendRequests(cli, table, &wg)
 	}
-	wg.Wait()*/
+	wg.Wait()
 
 	time.Sleep(time.Hour * 1)
 }
