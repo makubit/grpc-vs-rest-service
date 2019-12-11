@@ -1,0 +1,11 @@
+2019/12/11 07:55:41 TEST CASE #1
+2019/12/11 07:55:41 Sorting time with JSON:  308.55288ms Sorting time only:  238.629221ms  is sorted =  true
+2019/12/11 07:55:51 Sorting time with JSON:  387.444499ms Sorting time only:  298.653126ms  is sorted =  true
+2019/12/11 07:56:01 Sorting time with JSON:  431.075783ms Sorting time only:  332.487095ms  is sorted =  true
+2019/12/11 07:56:11 Sorting time with JSON:  357.613656ms Sorting time only:  292.8215ms  is sorted =  true
+2019/12/11 07:56:22 Sorting time with JSON:  646.728655ms Sorting time only:  553.169281ms  is sorted =  true
+2019/12/11 07:56:31 Sorting time with JSON:  433.113274ms Sorting time only:  342.273054ms  is sorted =  true
+2019/12/11 07:56:42 Sorting time with JSON:  625.350998ms Sorting time only:  517.686638ms  is sorted =  true
+2019/12/11 07:56:51 Sorting time with JSON:  355.789741ms Sorting time only:  270.678224ms  is sorted =  true
+2019/12/11 07:57:01 Sorting time with JSON:  412.685953ms Sorting time only:  333.842752ms  is sorted =  true
+2019/12/11 07:57:12 Sorting time with JSON:  565.965724ms Sorting time only:  453.600444ms  is sorted =  true

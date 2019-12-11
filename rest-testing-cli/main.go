@@ -32,7 +32,7 @@ func main() {
 	var wg sync.WaitGroup
 
 	client := &http.Client{
-		Timeout: time.Duration(100 * time.Second),
+		Timeout: time.Duration(1000 * time.Second),
 	}
 
 	data, _ := ioutil.ReadFile("data.json")
@@ -40,7 +40,7 @@ func main() {
 	_ = json.Unmarshal(data, &sort)
 
 	// TEST CASE #1
-	log.Println("TEST CASE #1")
+	/*log.Println("TEST CASE #1")
 	wg.Add(loop * test1)
 	for i:=0; i<loop; i++ {
 		for j:=0; j<test1; j++ {
@@ -48,10 +48,10 @@ func main() {
 		}
 		time.Sleep(time.Second * 10)
 	}
-	wg.Wait()
+	wg.Wait()*/
 
 	// TEST CASE #10
-	/*log.Println("TEST CASE #10")
+	log.Println("TEST CASE #10")
 	wg.Add(loop * test10)
 	for i:=0; i<loop; i++ {
 		for j:=0; j<test10; j++ {
@@ -59,7 +59,7 @@ func main() {
 		}
 		time.Sleep(time.Second * 10)
 	}
-	wg.Wait()*/
+	wg.Wait()
 
 	// TEST CASE #100
 	/*log.Println("TEST CASE #100")
