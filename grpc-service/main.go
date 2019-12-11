@@ -43,7 +43,7 @@ func main() {
 		)
 	srv.Init()
 
-	sortingClient := sCli.NewSortingServiceClient(os.Getenv("SORT_APP_NAME"), srv.Client())
+	sortingClient := sCli.NewSortingServiceClient(os.Getenv("SORT_APP_NAME") + ":8082", srv.Client())
 	gr.RegisterGrpcServiceHandler(srv.Server(), &service{repo, sortingClient})
 
 	if err := srv.Run(); err != nil {

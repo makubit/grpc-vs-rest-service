@@ -18,11 +18,12 @@ func main() {
 
 	fmt.Println(gen)*/
 	gen := gen1MBTable()
-	sort := SortRequest{
+	/*sort := SortRequest{
 		TableToSort: gen,
-	}
+	}*/
 
-	file, _ := json.Marshal(sort)
+
+	file, _ := json.Marshal(gen)
 	_ = ioutil.WriteFile("data.json", file, 0644)
 }
 

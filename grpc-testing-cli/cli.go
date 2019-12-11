@@ -1,7 +1,8 @@
 package main
 
 import (
-	"math/rand"
+	"encoding/json"
+	"io/ioutil"
 	"os"
 	"sync"
 
@@ -13,7 +14,13 @@ import (
 	gr "github.com/makubit/grpc-vs-rest-service/grpc-service/proto/grpcService"
 )
 
-const loop = 1000000
+const (
+	loop = 100
+	test1 = 1
+	test10 = 10
+	test100 = 100
+	test1000 = 1000
+)
 
 func main() {
 	time.Sleep(10*time.Second)
@@ -24,26 +31,55 @@ func main() {
 	)
 
 	srv.Init()
-	//srv.Client().Init(client.RequestTimeout(time.Second * time.Duration(15)))
-	cli := gr.NewGrpcServiceClient(os.Getenv("SERV_APP_NAME"), srv.Client())
+	cli := gr.NewGrpcServiceClient(os.Getenv("SERV_APP_NAME") + ":8081", srv.Client())
 
+	data, _ := ioutil.ReadFile("data.json")
 	var table []int32
-	table = gen1MBTable() //TODO: wczytaj dane z pliku - żeby wszędzie była ta sama tabela do posortowania
+	_ = json.Unmarshal(data, &table)
 
-	wg.Add(loop)
+	// TEST CASE #1
+	log.Println("TEST CASE #1")
+	wg.Add(loop * test1)
 	for i:=0; i<loop; i++ {
-		go sendRequests(cli, table, &wg)
-		time.Sleep(5*time.Second)
+		for j:=0; j<test1; j++ {
+			go sendRequests(cli, table, &wg)
+		}
+		time.Sleep(time.Second * 10)
 	}
 	wg.Wait()
-}
 
-func gen1MBTable() []int32 {
-	gen := make([]int32, 31250)
-	for i:=0; i<31250; i++ {
-		gen[i] = rand.Int31()
+	// TEST CASE #10
+	/*log.Println("TEST CASE #10")
+	wg.Add(loop * test10)
+	for i:=0; i<loop; i++ {
+		for j:=0; j<test10; j++ {
+			go sendRequests(cli, table, &wg)
+		}
+		time.Sleep(time.Second * 10)
 	}
-	return gen
+	wg.Wait()*/
+
+	// TEST CASE #100
+	/*log.Println("TEST CASE #100")
+	wg.Add(loop * test100)
+	for i:=0; i<loop; i++ {
+		for j:=0; j<test100; j++ {
+			go sendRequests(cli, table, &wg)
+		}
+		time.Sleep(time.Second * 10)
+	}
+	wg.Wait()
+	log.Println("DONE")*/
+
+	// TEST CASE #1000
+	/*log.Println("TEST CASE #1000")
+	wg.Add(test1000)
+	for j:=0; j<test1000; j++ {
+		go sendRequests(client, sort ,&wg)
+	}
+	wg.Wait()*/
+
+	time.Sleep(time.Hour * 1)
 }
 
 func sendRequests(client gr.GrpcServiceClient, table []int32, wg *sync.WaitGroup) {

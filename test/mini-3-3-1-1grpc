@@ -1,0 +1,11 @@
+2019-12-11 09:30:35.230506 I | TEST CASE #1
+2019-12-11 09:30:35.483552 I | Sorting time:  252.756518ms  is sorted =  true
+2019-12-11 09:30:45.272842 I | Sorting time:  42.027773ms  is sorted =  true
+2019-12-11 09:30:55.379773 I | Sorting time:  148.788161ms  is sorted =  true
+2019-12-11 09:31:05.388321 I | Sorting time:  157.121257ms  is sorted =  true
+2019-12-11 09:31:15.268616 I | Sorting time:  37.19729ms  is sorted =  true
+2019-12-11 09:31:25.277777 I | Sorting time:  46.073173ms  is sorted =  true
+2019-12-11 09:31:35.300022 I | Sorting time:  67.770742ms  is sorted =  true
+2019-12-11 09:31:45.373375 I | Sorting time:  140.834956ms  is sorted =  true
+2019-12-11 09:31:55.378804 I | Sorting time:  145.54064ms  is sorted =  true
+2019-12-11 09:32:05.373365 I | Sorting time:  139.912378ms  is sorted =  true

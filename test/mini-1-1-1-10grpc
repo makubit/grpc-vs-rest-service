@@ -1,0 +1,21 @@
+2019-12-11 09:36:15.858063 I | TEST CASE #10
+2019-12-11 09:36:16.308635 I | Sorting time:  448.09889ms  is sorted =  true
+2019-12-11 09:36:16.322670 I | Sorting time:  464.07173ms  is sorted =  true
+2019-12-11 09:36:16.331725 I | Sorting time:  471.195925ms  is sorted =  true
+2019-12-11 09:36:16.358141 I | Sorting time:  499.315915ms  is sorted =  true
+2019-12-11 09:36:16.443212 I | Sorting time:  585.047246ms  is sorted =  true
+2019-12-11 09:36:16.466990 I | Sorting time:  607.75989ms  is sorted =  true
+2019-12-11 09:36:16.484463 I | Sorting time:  623.885626ms  is sorted =  true
+2019-12-11 09:36:16.486979 I | Sorting time:  626.488752ms  is sorted =  true
+2019-12-11 09:36:16.493677 I | Sorting time:  634.679416ms  is sorted =  true
+2019-12-11 09:36:16.496396 I | Sorting time:  635.769884ms  is sorted =  true
+2019-12-11 09:36:25.949622 I | Sorting time:  89.453928ms  is sorted =  true
+2019-12-11 09:36:26.010157 I | Sorting time:  141.460133ms  is sorted =  true
+2019-12-11 09:36:26.029916 I | Sorting time:  155.791822ms  is sorted =  true
+2019-12-11 09:36:26.033410 I | Sorting time:  161.915846ms  is sorted =  true
+2019-12-11 09:36:26.059411 I | Sorting time:  187.808202ms  is sorted =  true
+2019-12-11 09:36:26.073727 I | Sorting time:  208.195415ms  is sorted =  true
+2019-12-11 09:36:26.081202 I | Sorting time:  222.778396ms  is sorted =  true
+2019-12-11 09:36:26.087277 I | Sorting time:  228.808823ms  is sorted =  true
+2019-12-11 09:36:26.088207 I | Sorting time:  204.627818ms  is sorted =  true
+2019-12-11 09:36:26.092369 I | Sorting time:  190.039637ms  is sorted =  true

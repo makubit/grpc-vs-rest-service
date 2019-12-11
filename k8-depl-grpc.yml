@@ -21,8 +21,8 @@ spec:
            value: grpc-service
          - name: SORT_APP_NAME
            value: grpc-sorting-service
-         - name: MICRO_SELECTOR
-           value: static
+         - name: MICRO_CLIENT_REQUEST_TIMEOUT
+           value: 1m
          image: makubit/grpc-vs-rest-service_grpc-service:latest
          imagePullPolicy: Always
          ports:
@@ -66,8 +66,8 @@ spec:
           env:
           - name: MICRO_SERVER_ADDRESS
             value: ":8082"
-          - name: MICRO_SELECTOR
-            value: static
+          - name: MICRO_CLIENT_REQUEST_TIMEOUT
+            value: 1m
           - name: APP_NAME
             value: grpc-sorting-service
           image: makubit/grpc-vs-rest-service_grpc-sorting-service:latest
@@ -113,12 +113,12 @@ spec:
           env:
             - name: MICRO_SERVER_ADDRESS
               value: ":8080"
+            - name: MICRO_CLIENT_REQUEST_TIMEOUT
+              value: 1m
             - name: APP_NAME
               value: grpc-testing-cli
             - name: SERV_APP_NAME
               value: grpc-service
-            - name: MICRO_SELECTOR
-              value: static
           image: makubit/grpc-vs-rest-service_grpc-testing-cli:latest
           imagePullPolicy: Always
           ports:

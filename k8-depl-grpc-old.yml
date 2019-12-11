@@ -1,22 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: micro
   name: grpc-service
 spec:
    replicas: 1
    selector:
      matchLabels:
        app: grpc-service
+       micro: service
    template:
      metadata:
        labels:
          app: grpc-service
+         micro: service
      spec:
        containers:
        - name: grpc-service
          env:
          - name: MICRO_SERVER_ADDRESS
            value: ":8081"
+         - name: MICRO_BROKER_ADDRESS
+           value: ":10001"
+         - name: MICRO_SERVER_NAME
+           value: grpc-service
+         - name: MICRO_CLIENT_REQUEST_TIMEOUT
+           value: 1m
+         - name: MICRO_CLIENT_POOL_TTL
+           value: 1m
+         - name: MICRO_ENABLE_STATS
+           value: "true"
+         - name: MICRO_SELECTOR
+           value: static
          - name: APP_NAME
            value: grpc-service
          - name: SORT_APP_NAME
@@ -31,9 +46,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: micro
   name: grpc-service
 spec:
-  type: NodePort
   ports:
     - port: 8081
       targetPort: 8081
@@ -46,22 +61,37 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: micro
   name: grpc-sorting-service
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: grpc-sorting-service
+      micro: service
   template:
     metadata:
       labels:
         app: grpc-sorting-service
+        micro: service
     spec:
       containers:
         - name: grpc-sorting-service
           env:
           - name: MICRO_SERVER_ADDRESS
             value: ":8082"
+          - name: MICRO_BROKER_ADDRESS
+            value: ":10001"
+          - name: MICRO_CLIENT_REQUEST_TIMEOUT
+            value: 1m
+          - name: MICRO_CLIENT_POOL_TTL
+            value: 1m
+          - name: MICRO_SERVER_NAME
+            value: grpc-sorting-service
+          - name: MICRO_SELECTOR
+            value: static
+          - name: MICRO_ENABLE_STATS
+            value: "true"
           - name: APP_NAME
             value: grpc-sorting-service
           image: makubit/grpc-vs-rest-service_grpc-sorting-service:latest
@@ -75,8 +105,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: grpc-sorting-service
+  namespace: micro
 spec:
-  type: NodePort
   ports:
     - port: 8082
       targetPort: 8082
@@ -90,25 +120,40 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: grpc-testing-cli
+  namespace: micro
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: grpc-testing-cli
+      micro: service
   template:
     metadata:
       labels:
         app: grpc-testing-cli
+        micro: service
     spec:
       containers:
         - name: grpc-testing-cli
           env:
             - name: MICRO_SERVER_ADDRESS
               value: ":8080"
+            - name: MICRO_BROKER_ADDRESS
+              value: ":10001"
+            - name: MICRO_CLIENT_REQUEST_TIMEOUT
+              value: 1m
+            - name: MICRO_SERVER_NAME
+              value: grpc-testing-cli
+            - name: MICRO_SELECTOR
+              value: static
+            - name: MICRO_ENABLE_STATS
+              value: "true"
             - name: APP_NAME
               value: grpc-testing-cli
             - name: SERV_APP_NAME
               value: grpc-service
+            - name: MICRO_CLIENT_POOL_TTL
+              value: 1m
           image: makubit/grpc-vs-rest-service_grpc-testing-cli:latest
           imagePullPolicy: Always
           ports:
@@ -121,10 +166,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: grpc-testing-cli
-  labels:
-    name: grpc-testing-cli
+  namespace: micro
 spec:
-  type: NodePort
   ports:
     - port: 8080
       targetPort: 8080 #accessible from outside of the cluser
